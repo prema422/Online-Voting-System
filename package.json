@@ -1,0 +1,13 @@
+{
+  "name": "online_voting_system",
+  "version": "1.0.0",
+  "description": "Full stack online voting system",
+  "scripts": {
+    "server": "node server/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

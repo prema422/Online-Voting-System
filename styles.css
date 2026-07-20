@@ -1,0 +1,669 @@
+/* Modern Color Palette and Variables */
+:root {
+    /* Primary Colors - Purple Theme */
+    --primary: #7C3AED;
+    --primary-dark: #6D28D9;
+    --primary-light: #A78BFA;
+    
+    /* Background Colors - Purple Gradient */
+    --background-start: #5B21B6;
+    --background-mid: #7C3AED;
+    --background-end: #C084FC;
+    
+    /* Gradient Definitions */
+    --primary-gradient: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+    --background-gradient: linear-gradient(
+        135deg,
+        #5B21B6 0%,
+        #7C3AED 30%,
+        #9D4EDD 60%,
+        #C77DFF 100%
+    );
+    
+    /* Surface Colors */
+    --surface: rgba(255, 255, 255, 0.1);
+    --surface-light: rgba(255, 255, 255, 0.15);
+    --surface-border: rgba(255, 255, 255, 0.3);
+    
+    /* Text Colors */
+    --text: #ffffff;
+    --text-light: rgba(255, 255, 255, 0.9);
+    --text-lighter: rgba(255, 255, 255, 0.7);
+    
+    /* Border & Shadow */
+    --border: rgba(255, 255, 255, 0.2);
+    --border-light: rgba(255, 255, 255, 0.1);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.4);
+    
+    /* Button Colors */
+    --button-hover-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+    --button-active-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* Base Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 30%, #9D4EDD 60%, #C77DFF 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" /><stop offset="100%25" style="stop-color:rgba(0,0,0,0.1);stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23grad)"/><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><circle cx="1100" cy="700" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><g opacity="0.08"><rect x="50" y="150" width="120" height="160" fill="rgba(255,255,255,0.3)" rx="8"/><rect x="100" y="190" width="40" height="40" fill="rgba(255,255,255,0.5)"/><rect x="160" y="190" width="40" height="40" fill="rgba(255,255,255,0.5)"/><rect x="100" y="250" width="100" height="8" fill="rgba(255,255,255,0.3)"/></g><g opacity="0.08" transform="translate(950, 200)"><rect x="50" y="150" width="120" height="160" fill="rgba(255,255,255,0.3)" rx="8"/><rect x="100" y="190" width="40" height="40" fill="rgba(255,255,255,0.5)"/><rect x="160" y="190" width="40" height="40" fill="rgba(255,255,255,0.5)"/></g></svg>'),
+                var(--background-gradient);
+    background-size: cover, 1200px 800px, 100% 100%;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Clean Background - No Effects */
+body::before {
+    display: none;
+}
+
+body::after {
+    display: none;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--surface-light);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px) brightness(1.1);
+    border: 1px solid var(--surface-border);
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo Styles */
+.logo {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    perspective: 1000px;
+}
+
+.logo-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 10px 30px rgba(30, 64, 175, 0.3));
+    animation: logoFloat 3.5s ease-in-out infinite;
+    transition: filter 0.3s ease;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0px) rotateZ(0deg);
+    }
+    25% {
+        transform: translateY(-12px) rotateZ(1deg);
+    }
+    50% {
+        transform: translateY(-8px) rotateZ(-1deg);
+    }
+    75% {
+        transform: translateY(-12px) rotateZ(1deg);
+    }
+}
+
+.logo-wrapper:hover .logo-svg {
+    filter: drop-shadow(0 20px 40px rgba(30, 64, 175, 0.4));
+    animation: logoPulse 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes logoPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo h1 {
+    font-size: 2.2rem;
+    color: #1e40af;
+    margin: 1.25rem 0 0.5rem;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0.5rem 0 0;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+#login-btn, #reg-btn {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+    color: white;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#login-btn:hover, #reg-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
+    background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 100%);
+}
+
+#login-btn:active, #reg-btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+/* Button Effects */
+#login-btn::before, #reg-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transition: left 0.5s ease;
+}
+
+#login-btn:hover::before, #reg-btn:hover::before {
+    left: 100%;
+}
+
+/* Auth Form Spacing */
+#auth {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+#auth hr {
+    margin: 1.5rem 0;
+    border: none;
+    border-top: 1px solid var(--border);
+    opacity: 0.5;
+}
+
+/* Logo Styles */
+.logo {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.logo-icon {
+    background: var(--primary-gradient);
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: var(--shadow);
+    transform: rotate(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.logo-icon:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.logo-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem;
+}
+
+/* Form Elements */
+input {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+}
+
+input:focus {
+    outline: none;
+    border-color: #A78BFA;
+    box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 0.75rem;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(76, 111, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(76, 111, 255, 0.2);
+}
+
+button:hover::before {
+    opacity: 1;
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(76, 111, 255, 0.1);
+}
+
+#login-btn, #reg-btn {
+    position: relative;
+    z-index: 1;
+}
+
+#login-btn::after, #reg-btn::after {
+    content: '→';
+    position: absolute;
+    right: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#login-btn:hover::after, #reg-btn:hover::after {
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+#logout-btn {
+    width: auto;
+    padding: 0.85rem 1.75rem;
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+}
+
+#logout-btn:hover {
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5);
+}
+
+#logout-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Lists and Items */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+li {
+    margin: 0.75rem 0;
+    padding: 1rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Auth Form Styling */
+#auth {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+}
+
+#auth h2 {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.9rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+#auth h2 i {
+    color: var(--primary-light);
+    font-size: 1.35rem;
+}
+
+#auth h3 {
+    margin: 1.75rem 0 0.8rem 0;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px dashed rgba(255,255,255,0.06);
+    padding-top: 1rem;
+}
+
+#auth h3 i {
+    color: var(--primary-light);
+    font-size: 1.05rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.form-group label i {
+    color: var(--primary-light);
+    font-size: 1rem;
+}
+
+.divider {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* App Section */
+#app {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.welcome-box {
+    flex: 1;
+}
+
+.welcome-text {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.btn-logout {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 59, 48, 0.3);
+    border: 1px solid rgba(255, 59, 48, 0.5);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 59, 48, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Voting Container */
+.voting-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.candidates-section, .results-section {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.candidates-section h2, .results-section h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.candidates-list, .results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.candidates-list li, .results-list li {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.candidates-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.candidates-list button {
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.candidates-list button:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Utilities */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+small {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    button {
+        padding: 0.75rem 1rem;
+    }
+}

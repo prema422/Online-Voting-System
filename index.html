@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Online Voting System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-wrapper">
+        <svg class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+            </linearGradient>
+            <filter id="logoShadow">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+          
+          <!-- Background circle -->
+          <circle cx="100" cy="100" r="100" fill="url(#logoGradient)" filter="url(#logoShadow)"/>
+          
+          <!-- Inner white circle -->
+          <circle cx="100" cy="100" r="92" fill="white" opacity="0.95"/>
+          
+          <!-- Ballot box shape -->
+          <g transform="translate(100, 100)">
+            <!-- Main box body -->
+            <rect x="-35" y="-40" width="70" height="75" rx="6" fill="url(#logoGradient)" stroke="none"/>
+            
+            <!-- Box opening/slot -->
+            <rect x="-35" y="-45" width="70" height="8" rx="4" fill="url(#logoGradient)"/>
+            
+            <!-- Checkmark inside -->
+            <path d="M -15 -20 L -5 -5 L 20 -35" stroke="white" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            
+            <!-- Democratic icons - circles -->
+            <circle cx="-40" cy="-35" r="3.5" fill="#fbbf24"/>
+            <circle cx="40" cy="-35" r="3.5" fill="#fbbf24"/>
+            <circle cx="0" cy="-50" r="4" fill="#fbbf24"/>
+          </g>
+          
+          <!-- Border accent -->
+          <circle cx="100" cy="100" r="98" fill="none" stroke="url(#logoGradient)" stroke-width="1.5" opacity="0.3"/>
+        </svg>
+      </div>
+      <h1>Online Voting System</h1>
+      <p class="subtitle">Secure • Democratic • Transparent</p>
+    </div>
+
+    <div id="auth">
+      <h2><i class="fas fa-lock"></i> Login</h2>
+      <div class="form-group">
+        <label for="login-email">Email Address</label>
+        <input id="login-email" type="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="Enter your password" />
+      </div>
+      <button id="login-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <p class="small-note">Don't have an account? <a href="register.html">Create an account</a></p>
+    </div>
+
+    <!-- ✅ Voting App Section - Role-based Visibility -->
+    <div id="app" class="hidden">
+      <div class="app-header">
+        <div class="welcome-box">
+          <p class="welcome-text">Welcome, <strong><span id="user-name"></span></strong></p>
+          <p class="role-badge" id="role-display"></p>
+        </div>
+        <button id="logout-btn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+
+      <div class="voting-container">
+        <div class="candidates-section">
+          <h2><i class="fas fa-users"></i> Candidates</h2>
+          <ul id="candidates" class="candidates-list"></ul>
+        </div>
+
+        <!-- Results - Only visible to admin -->
+        <div id="results-section" class="results-section hidden">
+          <h2><i class="fas fa-chart-bar"></i> Live Results (Admin Only)</h2>
+          <ul id="results" class="results-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

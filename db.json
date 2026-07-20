@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": "ar3twJ4wq6vVe6IgqQShH",
+      "name": "admin",
+      "email": "admin@example.com",
+      "password": "$2b$10$9YMJSV3W9/vOjkfOuel9xOPXCwi1xpvbITD1oyEaKY8vOCtlgZPwG",
+      "role": "admin"
+    },
+    {
+      "id": "I7qCtDVBCEJ3ZHNvkJ32M",
+      "name": "prema",
+      "email": "kavalipremasai@gmail.com",
+      "password": "$2b$10$tCmsCxG58Jc99w35Q4ujwesBgpqqkN4Fq8xJq3duO0yw1or78uh/y",
+      "role": "voter"
+    },
+    {
+      "id": "jqHFdXxmxd6AZ_XeUb4dB",
+      "name": "sai",
+      "email": "saisiva@gmail.com",
+      "password": "$2b$10$sIpeBrYaHHRQxQe9xUaAhuo.O8mcFTAJ3hteGI.bxQcYswP5e/Q/2",
+      "role": "voter"
+    },
+    {
+      "id": "wnW8qQzwBpiGBV_pPNP1v",
+      "name": "ashok",
+      "email": "ashok@gmail.com",
+      "password": "$2b$10$tWCGERzEcPzZDkNWH7ps8u0OB4q/ybxdhBDMeKm1OeVFrRKLeOtju",
+      "role": "voter"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "mLBIEpKNbbi_mTCxVKY1_",
+      "name": "PREM"
+    },
+    {
+      "id": "9R9wNbVVhhMGa2jUY1iv_",
+      "name": "SAI"
+    },
+    {
+      "id": "saleemCandidate123",
+      "name": "SALEEM"
+    }
+  ],
+  "votes": [
+    {
+      "id": "8BBGtLH5rNKRP0RHs-94v",
+      "voterId": "I7qCtDVBCEJ3ZHNvkJ32M",
+      "candidateId": "9R9wNbVVhhMGa2jUY1iv_",
+      "timestamp": 1763279100964
+    },
+    {
+      "id": "IX132Ap8q_3MnwuqGBDEb",
+      "voterId": "ar3twJ4wq6vVe6IgqQShH",
+      "candidateId": "mLBIEpKNbbi_mTCxVKY1_",
+      "timestamp": 1763279137289
+    },
+    {
+      "id": "0rsIsKR2IvXI9BYWQ-6u_",
+      "voterId": "jqHFdXxmxd6AZ_XeUb4dB",
+      "candidateId": "saleemCandidate123",
+      "timestamp": 1763280545376
+    },
+    {
+      "id": "V9L65y9T4jWBEUnXjnJd6",
+      "voterId": "wnW8qQzwBpiGBV_pPNP1v",
+      "candidateId": "mLBIEpKNbbi_mTCxVKY1_",
+      "timestamp": 1763280689987
+    }
+  ]
+}
